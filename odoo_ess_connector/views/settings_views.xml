@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form_ess_connector" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.ess.connector</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="90"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <!--
+                    The target for General Settings often has a main div with id="res_config_settings_general_settings".
+                    Let's try to add our block within that, or after a known existing setting block.
+                    A common stable element is the one for 'language_ids' or 'company_id'.
+                    Let's try adding after the "Companies" section if it exists,
+                    or as a new top-level block if the generic 'settings' div approach failed.
+                -->
+
+                <!-- Attempt 1: Add as a new block at the end of the main settings area -->
+                <xpath expr="//block[@id='invoicing_settings']" position="after">
+                     <div class="app_settings_block" data-string="ESS Connector" string="ESS Connector" data-key="odoo_ess_connector" groups="base.group_system">
+                        <h2>Employee Self-Service (ESS) API Connector</h2>
+                        <div class="row mt16 o_settings_container" name="ess_connector_settings_container">
+                            <!-- ESS Integration Enabled -->
+                            <div class="col-12 col-lg-6 o_setting_box" id="ess_integration_general">
+                                <div class="o_setting_left_pane">
+                                    <field name="ess_integration_enabled"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="ess_integration_enabled"/>
+                                    <div class="text-muted">
+                                        Enable or disable the entire ESS API integration.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Allowed IPs -->
+                            <div class="col-12 col-lg-6 o_setting_box" id="ess_integration_security">
+                                 <div class="o_setting_left_pane"/>
+                                 <div class="o_setting_right_pane">
+                                    <label for="ess_allowed_ips" string="Allowed IPs (ESS API)"/>
+                                    <div class="text-muted">
+                                        Optional: Comma-separated IPs. If set, only these IPs can access the ESS API.
+                                    </div>
+                                    <div class="content-group mt16">
+                                         <field name="ess_allowed_ips" placeholder="e.g., 192.168.1.100, 203.0.113.0/24"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- API Token Management Link -->
+                        <div class="row mt16 o_settings_container" name="ess_api_token_management_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">API Token Management</span>
+                                     <div class="text-muted">
+                                         Configure and manage API tokens for users that will access the ESS Connector.
+                                     </div>
+                                     <div class="mt8">
+                                         <button name="%(odoo_ess_connector.action_ess_api_token)d"
+                                                 icon="fa-key" type="action"
+                                                 string="Manage User API Tokens" class="btn-link"/>
+                                     </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+
+                <!-- Attempt 2: If the above doesn't work, try a more generic top-level insertion -->
+                <!-- This is the one you had before, which sometimes can be problematic if 'settings' class is too common -->
+                <!--
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="ESS Connector" string="ESS Connector" data-key="odoo_ess_connector" groups="base.group_system">
+                        ... your content from above ...
+                    </div>
+                </xpath>
+                -->
+            </field>
+        </record>
+    </data>
+</odoo>

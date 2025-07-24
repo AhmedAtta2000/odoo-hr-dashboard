@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1"> <!-- noupdate="1" prevents overwriting on updates if manually changed -->
+        <record id="group_ess_api_access" model="res.groups">
+            <field name="name">ESS API Access</field>
+            <field name="category_id" ref="base.module_category_human_resources_api"/> <!-- Or another category -->
+            <field name="comment">Allows users to generate/use API tokens for the ESS Portal.</field>
+        </record>
+    </data>
+</odoo>

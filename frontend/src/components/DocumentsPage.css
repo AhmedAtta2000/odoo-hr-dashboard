@@ -1,0 +1,261 @@
+/* In frontend/src/components/DocumentsPage.css */
+
+.documents-container {
+  padding: 2rem;
+  max-width: 950px;
+  margin: 2rem auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.documents-container h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+/* Sections styling */
+.upload-section, .list-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    /* Removed border-bottom from upload-section for cleaner look if list-section always follows */
+}
+.upload-section {
+    border-bottom: 1px solid #eee; /* Keep border for upload section */
+}
+.list-section {
+    border-bottom: none; /* No border after the last section */
+}
+
+
+.upload-section h3, .list-section h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #444;
+}
+
+/* Upload Form Styles */
+.upload-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.upload-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: bold;
+}
+
+.upload-form select,
+.upload-form input[type="file"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.upload-form input[type="file"] {
+    padding: 0.5rem;
+}
+
+ .upload-form .file-name {
+    font-size: 0.9rem;
+    color: #555;
+    display: block;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.upload-form button {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background-color: #007bff; /* Primary blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+ .upload-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+ .upload-form button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+
+/* Documents Table Styles */
+.documents-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.documents-table th,
+.documents-table td {
+  border: 1px solid #e0e0e0;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+  word-break: break-word;
+}
+
+.documents-table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  color: #444;
+}
+
+.documents-table tbody tr:nth-child(even) {
+  background-color: #fdfdfd;
+}
+.documents-table tbody tr:hover {
+    background-color: #f1f1f1;
+ }
+
+/* Styles for buttons within the table cells */
+.documents-table td button {
+    margin-right: 5px; /* Add some space between buttons */
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+    color: white;
+}
+.documents-table td button:last-child {
+    margin-right: 0;
+}
+.documents-table td button:disabled {
+    background-color: #ccc !important; /* Ensure disabled style overrides */
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.documents-table .download-button {
+    background-color: #17a2b8; /* Teal */
+}
+.documents-table .download-button:hover:not(:disabled) {
+    background-color: #117a8b;
+}
+
+/* --- NEW STYLES for Delete Button --- */
+.documents-table .delete-button {
+    background-color: #dc3545; /* Red */
+}
+.documents-table .delete-button:hover:not(:disabled) {
+    background-color: #c82333;
+}
+/* ----------------------------------- */
+
+
+/* Message Styles */
+.error-message {
+    color: #721c24; /* Darker red for text for better contrast */
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 0.75rem 1.25rem; /* Standard bootstrap alert padding */
+    margin-bottom: 1rem; /* Consistent margin */
+    border-radius: 0.25rem; /* Standard bootstrap border-radius */
+    text-align: center;
+}
+.success-message {
+    color: #155724; /* Darker green for text */
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    text-align: center;
+}
+
+.widget-error { /* This seems out of place here, was it for dashboard? Included for completeness */
+  color: #dc3545;
+  font-style: italic;
+}
+
+
+/* --- NEW STYLES for Confirmation Dialog --- */
+.confirm-dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top */
+}
+
+.confirm-dialog {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px; /* Max width for the dialog */
+    text-align: center;
+}
+
+.confirm-dialog h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.confirm-dialog p {
+    margin-bottom: 20px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.confirm-dialog-actions {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+}
+
+.confirm-dialog-actions button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.confirm-dialog-actions .button-cancel {
+    background-color: #6c757d; /* Grey */
+    color: white;
+}
+.confirm-dialog-actions .button-cancel:hover:not(:disabled) {
+    background-color: #5a6268;
+}
+
+.confirm-dialog-actions .button-delete {
+    background-color: #dc3545; /* Red */
+    color: white;
+}
+.confirm-dialog-actions .button-delete:hover:not(:disabled) {
+    background-color: #c82333;
+}
+
+.confirm-dialog-actions button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+/* ----------------------------------------- */

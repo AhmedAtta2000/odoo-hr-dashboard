@@ -1,0 +1,205 @@
+/* In frontend/src/components/AdminTenantConfigPage.css */
+.admin-config-container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.admin-config-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+.admin-config-container h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #444;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+
+.admin-loading {
+    text-align: center;
+    padding: 2rem;
+    font-style: italic;
+    color: #555;
+}
+
+.odoo-config-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.odoo-config-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.odoo-config-form input[type="text"],
+.odoo-config-form input[type="url"],
+.odoo-config-form input[type="password"],
+.admin-config-container select { /* Style select for tenants too */
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.odoo-config-form small {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.odoo-config-form button {
+    display: block;
+    width: auto; /* Or 100% if preferred */
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+    margin-top: 1rem;
+}
+.odoo-config-form button:disabled {
+    background-color: #ccc;
+}
+.odoo-config-form button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+/* Reuse .error-message and .success-message from App.css or define locally */
+.error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin: 1rem auto; /* Center error message */
+    text-align: center;
+    max-width: 500px;
+  }
+
+  .create-tenant-section, .tenant-list-section, .odoo-config-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+.create-tenant-section h3, .tenant-list-section h3, .odoo-config-section h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #337ab7; /* A different color for section headers */
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.create-tenant-form {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+}
+
+.tenants-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.tenants-table th, .tenants-table td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.tenants-table th {
+    background-color: #f5f5f5;
+}
+
+.tenants-table .selected-row td { /* Highlight selected row for config */
+    background-color: #e7f3ff;
+}
+
+.status-badge {
+    padding: 0.2em 0.6em;
+    border-radius: 0.25rem;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: white;
+}
+.status-badge.active {
+    background-color: #5cb85c; /* Green */
+}
+.status-badge.inactive {
+    background-color: #d9534f; /* Red */
+}
+
+.admin-button, .admin-button-small { /* General admin button style */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-right: 0.5rem; /* Spacing for buttons in a row */
+    transition: background-color 0.2s ease;
+}
+.admin-button:hover, .admin-button-small:hover {
+    background-color: #0056b3;
+}
+.admin-button-small {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+}
+.tenants-table td button:last-child {
+    margin-right: 0;
+}
+
+
+
+.test-connection-result {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 500;
+}
+.test-connection-result.success {
+    background-color: #d4edda; /* Light green */
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.test-connection-result.error {
+    background-color: #f8d7da; /* Light red */
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.odoo-config-form .form-actions {
+    display: flex;
+    align-items: center; /* Align buttons nicely if on same line */
+    gap: 10px; /* Space between buttons */
+    margin-top: 1.5rem;
+}
+
+.admin-button-secondary {
+    background-color: #6c757d; /* Grey */
+}
+.admin-button-secondary:hover:not(:disabled) {
+    background-color: #5a6268;
+}

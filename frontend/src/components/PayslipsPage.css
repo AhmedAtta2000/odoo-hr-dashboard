@@ -1,0 +1,102 @@
+.payslips-container {
+    padding: 2rem;
+    max-width: 900px; /* Wider for table */
+    margin: 2rem auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .payslips-container.loading {
+      text-align: center;
+      padding: 3rem;
+      font-size: 1.2rem;
+      color: #555;
+  }
+  
+  .payslips-container h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+  }
+  
+  /* Use styles similar to existing error messages */
+  .payslips-container .error-message {
+      color: #dc3545;
+      background-color: #f8d7da;
+      border: 1px solid #f5c6cb;
+      padding: 0.75rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+  }
+  
+  
+  .payslips-table {
+    width: 100%;
+    border-collapse: collapse; /* Remove space between borders */
+    margin-top: 1.5rem;
+  }
+  
+  .payslips-table th,
+  .payslips-table td {
+    border: 1px solid #e0e0e0;
+    padding: 0.8rem 1rem;
+    text-align: left;
+    vertical-align: middle;
+  }
+  
+  .payslips-table th {
+    background-color: #f8f9fa; /* Light grey header */
+    font-weight: bold;
+    color: #444;
+  }
+  
+  .payslips-table tbody tr:nth-child(even) {
+    background-color: #fdfdfd; /* Slightly off-white for alternating rows */
+  }
+   .payslips-table tbody tr:hover {
+      background-color: #f1f1f1; /* Highlight on hover */
+   }
+  
+  
+  /* Status Styling */
+  .status {
+      padding: 0.3rem 0.6rem;
+      border-radius: 15px; /* Pill shape */
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: white;
+      text-transform: capitalize;
+  }
+  
+  .status-paid { background-color: #28a745; } /* Green */
+  .status-draft { background-color: #ffc107; color: #333 } /* Yellow */
+  .status-cancelled { background-color: #dc3545; } /* Red */
+  /* Add other statuses as needed */
+  
+  
+  .download-button {
+      padding: 0.5rem 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.2s ease;
+      white-space: nowrap; /* Prevent button text wrapping */
+  }
+  
+  .download-button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+      opacity: 0.7;
+  }
+  
+  .download-button:hover:not(:disabled) {
+      background-color: #0056b3;
+  }

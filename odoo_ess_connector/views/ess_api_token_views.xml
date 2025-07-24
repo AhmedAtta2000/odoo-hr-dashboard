@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ESS API Token Tree View -->
+    <record id="view_ess_api_token_list" model="ir.ui.view">
+        <field name="name">ess.api.token.list</field>
+        <field name="model">ess.api.token</field>
+        <field name="arch" type="xml">
+            <list string="API Access Tokens" decoration-muted="not active">
+                <field name="name"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="token" groups="base.group_system" optional="show"/>
+                <field name="create_date" string="Created On"/>
+                <field name="last_used"/>
+                <field name="active" widget="boolean_toggle"/>
+                <field name="scope" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ESS API Token Form View -->
+    <record id="view_ess_api_token_form" model="ir.ui.view">
+        <field name="name">ess.api.token.form</field>
+        <field name="model">ess.api.token</field>
+        <field name="arch" type="xml">
+            <form string="API Access Token">
+                <header>
+                    <!-- Buttons for Odoo 17+ -->
+                    <!-- Show Deactivate button if active is True -->
+                    <button name="action_toggle_active" type="object"
+                            string="Deactivate" class="oe_highlight"
+                            invisible="not active"/>
+                    <!-- Show Activate button if active is False -->
+                    <button name="action_toggle_active" type="object"
+                            string="Activate" class="oe_highlight"
+                            invisible="active"/>
+                    
+                    <!-- Optional: Regenerate Token button (if you added the action) -->
+                    <!-- Make sure the action_regenerate_token method exists and handles permissions -->
+                    <button name="action_regenerate_token" type="object"
+                            string="Regenerate Token"
+                            confirm="Are you sure you want to regenerate this token? The old token will be immediately invalidated."
+                            groups="base.group_system"/> <!-- Example: Only for admins -->
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="e.g., My ESS Portal Integration"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="user_id" options="{'no_create': True, 'no_open': True}"
+                                    readonly="id"/> <!-- Simplified readonly condition: readonly if record exists -->
+                            <field name="token" readonly="1" force_save="1"
+                                    groups="base.group_system"
+                                    help="The API token is generated automatically. System Administrators can view it."/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                        <group>
+                            <field name="create_date" readonly="1"/>
+                            <field name="last_used" readonly="1"/>
+                            <field name="scope" placeholder="e.g., hr.employee.read, hr.leave.create"/>
+                        </group>
+                    </group>
+                        <notebook>
+                        <page string="Notes" name="notes">
+                            <field name="note" placeholder="Internal notes about this token..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ESS API Token Search View -->
+    <record id="view_ess_api_token_search" model="ir.ui.view">
+        <field name="name">ess.api.token.search</field>
+        <field name="model">ess.api.token</field>
+        <field name="arch" type="xml">
+            <search string="Search API Tokens">
+                <field name="name" string="Label"/>
+                <field name="user_id"/>
+                <field name="token"/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Inactive" name="inactive" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="User" name="group_by_user" context="{'group_by': 'user_id'}"/>
+                    <filter string="Status" name="group_by_active" context="{'group_by': 'active'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action to open ESS API Token views -->
+    <record id="action_ess_api_token" model="ir.actions.act_window">
+        <field name="name">ESS API Tokens</field>
+        <field name="res_model">ess.api.token</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_ess_api_token_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new API Access Token for the ESS Portal.
+            </p><p>
+                These tokens allow external applications to securely access specific Odoo data
+                on behalf of the associated user.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem
+        id="menu_ess_api_tokens_root"
+        name="ESS API Tokens"
+        parent="base.menu_administration"
+        groups="base.group_user"
+        sequence="90"/>
+
+    <menuitem
+        id="menu_ess_api_token_list"
+        name="Manage Tokens"
+        parent="menu_ess_api_tokens_root"
+        action="action_ess_api_token"
+        sequence="10"/>
+
+</odoo>

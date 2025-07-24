@@ -1,0 +1,166 @@
+.attendance-container {
+    padding: 2rem;
+    max-width: 600px; /* Centered, medium width */
+    margin: 2rem auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center content */
+  }
+  
+  .attendance-container h2 {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+  }
+  
+  .status-loading {
+      font-size: 1.1rem;
+      color: #555;
+      padding: 2rem 0;
+  }
+  
+  .status-display {
+      margin-bottom: 2.5rem;
+      padding: 1.5rem;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      background-color: #f8f9fa;
+  }
+  
+  .status-message {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+  }
+  .status-checked_in { color: #dc3545; } /* Red for checked in (active) */
+  .status-checked_out { color: #28a745; } /* Green for checked out (ready) */
+  .status-error, .status-unknown { color: #6c757d; } /* Grey for error/unknown */
+  
+  .action-button {
+      padding: 0.8rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+      transition: background-color 0.2s ease, opacity 0.2s ease;
+  }
+  
+  .action-button-checkin { background-color: #28a745; /* Green */ }
+  .action-button-checkin:hover:not(:disabled) { background-color: #218838; }
+  
+  .action-button-checkout { background-color: #dc3545; /* Red */ }
+  .action-button-checkout:hover:not(:disabled) { background-color: #c82333; }
+  
+  .action-button-disabled {
+      background-color: #6c757d; /* Grey */
+      cursor: not-allowed;
+      opacity: 0.7;
+  }
+  
+  .today-summary {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+      text-align: left; /* Align list items left */
+  }
+  .today-summary h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #444;
+      text-align: center;
+  }
+  .today-summary p {
+      text-align: center;
+      color: #666;
+      font-style: italic;
+  }
+  .today-summary ul {
+      list-style: none;
+      padding: 0;
+  }
+   .today-summary li {
+      padding: 0.3rem 0;
+      color: #555;
+   }
+  
+  
+  /* Reuse existing error message styles */
+  .error-message {
+      color: #dc3545;
+      background-color: #f8d7da;
+      border: 1px solid #f5c6cb;
+      padding: 0.75rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+  }
+
+  .today-summary {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+    text-align: left;
+}
+.today-summary h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #444;
+    text-align: center;
+}
+.today-summary p { /* For loading/no records messages */
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+.attendance-log-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.attendance-log-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0.3rem;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.95rem;
+}
+.attendance-log-list li:last-child {
+    border-bottom: none;
+}
+
+.log-time strong {
+    color: #333;
+}
+.log-time {
+    color: #555;
+    min-width: 120px; /* Adjust as needed */
+}
+.log-separator {
+    color: #ccc;
+    margin: 0 0.5rem;
+}
+.log-duration {
+    font-size: 0.85rem;
+    color: #777;
+    margin-left: auto; /* Pushes to the right */
+    padding-left: 1rem;
+}
+
+/* Ensure error message styling is available or defined */
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}

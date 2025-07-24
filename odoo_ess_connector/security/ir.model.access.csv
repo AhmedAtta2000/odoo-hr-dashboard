@@ -1,0 +1,22 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ess_api_token_group,ess.api.token access,model_ess_api_token,base.group_user,1,1,1,1
+access_hr_leave_type_ess_api_group,hr.leave.type read access for ess api,hr_holidays.model_hr_leave_type,base.group_user,1,0,0,0
+access_hr_leave_ess_api_group,hr.leave create/read access for ess api,hr_holidays.model_hr_leave,base.group_user,1,0,1,0
+access_hr_payslip_ess_api_group,hr.payslip read access for ess api,hr_payroll.model_hr_payslip,base.group_user,1,0,0,0
+access_hr_payslip_line_ess_api_group,hr.payslip.line read access for ess api,hr_payroll.model_hr_payslip_line,base.group_user,1,0,0,0
+access_ir_actions_report_ess_api_group,ir.actions.report read access for ess api,account.model_ir_actions_report,base.group_user,1,0,0,0
+access_product_product_ess_api_group,product.product read access for ess api,hr_expense.model_product_product,base.group_user,1,0,0,0
+access_hr_expense_ess_api_group,hr.expense create/read access for ess api,hr_expense.model_hr_expense,base.group_user,1,0,1,0
+access_ir_attachment_ess_api_group,ir.attachment create/read/write access for ess api,hr_expense.model_ir_attachment,base.group_user,1,1,1,0
+
+access_hr_attendance_ess_api_group,hr.attendance read access for ess api,hr_attendance.model_hr_attendance,base.group_user,1,0,0,0
+
+access_hr_attendance_ess_api_group,hr.attendance C/R/W access for ess api,hr_attendance.model_hr_attendance,base.group_user,1,1,1,0
+
+access_ess_api_log_system_admin,ess.api.log access for system admins,model_ess_api_log,base.group_system,1,1,1,1
+
+access_hr_employee_ess_api_group,hr.employee read access for ess api,hr.model_hr_employee,base.group_user,1,0,0,0
+
+access_ir_attachment_ess_api_group,ir.attachment C/R/W access for ess api,documents.model_ir_attachment,base.group_user,1,1,1,0
+
+

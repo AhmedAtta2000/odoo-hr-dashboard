@@ -1,0 +1,115 @@
+/* Reuse container styles if applicable, or define new ones */
+.expense-request-container {
+    padding: 2rem;
+    max-width: 700px;
+    margin: 2rem auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .expense-request-container h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+  }
+  
+  .expense-request-form .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .expense-request-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: bold;
+  }
+  
+  .expense-request-form input[type="text"],
+  .expense-request-form input[type="number"],
+  .expense-request-form .date-picker-input { /* Ensure date picker has consistent styling */
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+  
+  /* Layout for amount and date */
+  .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+      gap: 1rem;
+  }
+  .form-subgroup {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  
+  /* File Input Styling */
+  .expense-request-form input[type="file"] {
+      padding: 0.5rem; /* Different padding might be needed */
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      display: block; /* Make it take full width */
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 0.5rem; /* Space before filename display */
+  }
+  .file-name {
+      font-size: 0.9rem;
+      color: #555;
+      display: block;
+      margin-top: 0.5rem;
+      font-style: italic;
+  }
+  
+  
+  .expense-request-form button {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff; /* Blue for submit */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.2s ease;
+    margin-top: 1.5rem;
+  }
+  
+  .expense-request-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .expense-request-form button:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  
+  /* Reuse existing error/success message styles */
+  .error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .success-message {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
