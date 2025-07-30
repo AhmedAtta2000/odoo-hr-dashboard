@@ -17,6 +17,6 @@ access_ess_api_log_system_admin,ess.api.log access for system admins,model_ess_a
 
 access_hr_employee_ess_api_group,hr.employee read access for ess api,hr.model_hr_employee,base.group_user,1,0,0,0
 
-access_ir_attachment_ess_api_group,ir.attachment C/R/W access for ess api,documents.model_ir_attachment,base.group_user,1,1,1,0
+access_ir_attachment_ess_api_group,ir.attachment C/R/W access for ess api,base.model_ir_attachment,base.group_user,1,1,1,0
 
 
