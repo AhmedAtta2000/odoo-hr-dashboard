@@ -20,8 +20,9 @@
         'hr_holidays',
         'hr_payroll',
         'base_setup',
-#       'hr_expense', # Add if hr_expense module is installed/required
-    ],
+        'hr_expense',
+        'documents',   # For the documents app integration if you use its features
+        'account',     ],
     'data': [
         #'security/ess_security.xml', # Define security group
         'security/ir.model.access.csv', # Define model access rights
